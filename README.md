@@ -50,8 +50,6 @@ Give an example
 
 Add additional notes about how to deploy this on a live system
 
-## Built With
-
 ## Contributing
 
 CONTRIBUTING.md to come later with details on code of conduct and the process for submitting pull requests.
