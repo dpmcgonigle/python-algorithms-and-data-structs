@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 """
-node/__init__.py
+linkedlist/node.py
 
 This file will hold the Node classes to be utilized in LinkedList structures.
 
