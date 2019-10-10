@@ -16,7 +16,7 @@ class Node(ABC):
         data:           The data held by this Node.
 
     Methods:
-        get_data:       Returns the data being held within the node
+        get_value:       Returns the data being held within the node
     """    
 
     @abstractmethod
@@ -26,7 +26,7 @@ class Node(ABC):
         super().__init__()
 
     @abstractmethod
-    def get_data(self):
+    def get_value(self):
         pass
 
 class SinglyLinkedNode(Node):
@@ -38,13 +38,17 @@ class SinglyLinkedNode(Node):
         next (Node):    Reference to the next node within the LinkedList.
 
     Methods:
-        get_data:       Returns the data being held within the node.
+        get_value:       Returns the data being held within the node.
     """
     def __init__(self, data):
         """Constructor for the singly-linked list Node class."""
         self.data = data
         self.next = None
         
-    def get_data(self):
+    def get_value(self, key=None):
         """Returns data from the Node."""
-        return self.data
+        if key:
+            assert hasattr(self.data, key), "SinglyLinkedNode.get_value(): key %s not in data %s." % (key, str(self.data))
+            return getattr(self.data, key)
+        else:
+            return self.data
