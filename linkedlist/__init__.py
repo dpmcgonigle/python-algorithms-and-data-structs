@@ -6,6 +6,7 @@ This file will hold the main linked list classes.
 
 Created by Dan McGonigle on 10/09/2019
 """
+import operator
 from abc import ABC, abstractmethod
 from node import SinglyLinkedNode
 from utils import listtype
@@ -175,7 +176,7 @@ class OrderedSinglyLinkedList(SinglyLinkedList):
         find        (Node):  Finds a node based on a given value.
         length      (int):   Returns the length of the LinkedList
     """
-    def __init__(self, items=None, key=None):
+    def __init__(self, items=None, key=None, reverse=False):
         """
         Constructor for SinglyLinkedList class.  
 
@@ -185,6 +186,10 @@ class OrderedSinglyLinkedList(SinglyLinkedList):
             index   (str):      If a list of objects is provided, an index to a numeric property will need to be provided as well.
         """
         super().__init__()
+        if reverse:
+            self.comparison_op = operator.gt
+        else:
+            self.comparison_op = operator.lt
         self.key=None
         if not items:
             self.head = None
@@ -214,7 +219,7 @@ class OrderedSinglyLinkedList(SinglyLinkedList):
         value = self.get_value(item)
 
         if self.head:
-            if value < self.head.get_value(key=self.key):
+            if self.comparison_op(value , self.head.get_value(key=self.key)):
                 #   Put the new node at the beginning of the list
                 node = SinglyLinkedNode(item)
                 node.next = self.head
@@ -224,7 +229,7 @@ class OrderedSinglyLinkedList(SinglyLinkedList):
             #   Iterate through the list to find out where we go
             ref = self.head
             while ref.next:
-                if value < ref.next.get_value(key=self.key):
+                if self.comparison_op(value , ref.next.get_value(key=self.key)):
                     node = SinglyLinkedNode(item)
                     node.next = ref.next
                     ref.next = node

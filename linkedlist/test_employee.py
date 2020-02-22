@@ -44,11 +44,13 @@ if __name__ == "__main__":
 
     numlist = [6,2,78,3,1,45]
 
-    ll = SinglyLinkedList(emplist)
-    print("SinglyLinkedList ll created.  dir(ll): %s\n" % str(dir(ll)))
-    oll_fname = OrderedSinglyLinkedList(items=emplist, key="fname")
-    print("OrderedSinglyLinkedList oll_fname created.  dir(oll_fname): %s\n" % str(dir(oll_fname)))
+    #ll = SinglyLinkedList(emplist)
+    #print("SinglyLinkedList ll created.  dir(ll): %s\n" % str(dir(ll)))
+    #oll_fname = OrderedSinglyLinkedList(items=emplist, key="fname")
+    #print("OrderedSinglyLinkedList oll_fname created.  dir(oll_fname): %s\n" % str(dir(oll_fname)))
     oll_age = OrderedSinglyLinkedList(items=emplist, key="age")
     print("OrderedSinglyLinkedList oll_age created.  dir(oll_age): %s\n" % str(dir(oll_age)))
-    oll_num = OrderedSinglyLinkedList(items=numlist)
-    print("OrderedSinglyLinkedList oll_num created.  dir(oll_num): %s\n" % str(dir(oll_num)))
+    oll_age_rev = OrderedSinglyLinkedList(items=emplist, key="age", reverse=True)
+    print("OrderedSinglyLinkedList oll_age_rev created.  dir(oll_age_rev): %s\n" % str(dir(oll_age_rev)))
+    #oll_num = OrderedSinglyLinkedList(items=numlist)
+    #print("OrderedSinglyLinkedList oll_num created.  dir(oll_num): %s\n" % str(dir(oll_num)))
